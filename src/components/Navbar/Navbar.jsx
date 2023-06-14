@@ -92,7 +92,7 @@ const Navbar = () => {
               <li className="pb-1 nav-text  flex flex-align-item-center gap-1">
                 <span className="material-icons label-text">thumb_up_alt</span>
                 <span className="label-text">
-                  Like Videos {likedVideos.length > 0 ? likedVideos.length : ""}
+                  Liked videos {likedVideos.length > 0 ? likedVideos.length : ""}
                 </span>
               </li>
             </NavLink>
@@ -105,7 +105,7 @@ const Navbar = () => {
                 <span className="material-icons label-text ">watch_later</span>
 
                 <span className=" label-text">
-                  Watch Later{" "}
+                  Watch later{" "}
                   {watchLaterVideos.length > 0 ? watchLaterVideos.length : ""}
                 </span>
               </li>
@@ -129,7 +129,7 @@ const Navbar = () => {
               <li className="pb-1 nav-text  flex flex-align-item-center gap-1 badge">
                 <span className="material-icons label-text">queue</span>
 
-                <span className=" label-text">PlayList</span>
+                <span className=" label-text">Playlist</span>
               </li>
             </NavLink>
           </ul>
