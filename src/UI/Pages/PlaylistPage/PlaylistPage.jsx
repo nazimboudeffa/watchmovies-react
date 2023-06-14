@@ -16,7 +16,7 @@ const PlaylistPage = () => {
         <section className="video-lists-container flex flex-wrap gap">
           <h1>
             {playlistState.length === 0
-              ? `PlayList`
+              ? `Playlist`
               : `You have ${playlistState.length} Playlist`}{" "}
           </h1>
         </section>
