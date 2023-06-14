@@ -20,7 +20,6 @@ import {
 
 import { PlayListContext, PlayListData } from "./playlist/PlaylistContext";
 export { ToastContextData, useToast } from "./toast/ToastContext";
-export { AuthContextData, useAuth } from './auth/AuthContext';
 
 
 export {
