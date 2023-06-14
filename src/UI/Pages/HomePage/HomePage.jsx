@@ -10,7 +10,7 @@ const HomePage = () => {
       <Toaster position="bottom-center" reverseOrder={false} />
       <main>
         <HomeContainer />
-
+<br/>
         <section className="mt-3">
           <div className="container pt-3">
             <div className="flex flex-between">
