@@ -3,19 +3,17 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {
   useDescriptionData,
   useHistoryData,
-  useWatchLaterData,
-  useUserDetails,
+  useWatchLaterData
 } from "../../hook/";
 
-import { supabase } from "../../supabaseClient";
+
 import { Toaster } from "react-hot-toast";
 
-import { useAuth, useToast } from "../../contexts";
+import { useToast } from "../../contexts";
 import "./navbar.css";
 const Navbar = () => {
   const navigate = useNavigate();
   const { notifySuccess, notifyError } = useToast();
-  const { userDetails, getUserDetails } = useUserDetails();
 
   const {
     likeVideoState: { likedVideos },
@@ -27,8 +25,6 @@ const Navbar = () => {
   const {
     watchLaterState: { watchLaterVideos },
   } = useWatchLaterData();
-
-  const { currentUser } = useAuth();
 
   const [navbarStyle, setNavbarStyle] = useState("");
 
@@ -48,23 +44,6 @@ const Navbar = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (currentUser) {
-      getUserDetails();
-    }
-  }, [currentUser]);
-
-  const signoutUser = async () => {
-    try {
-      const { error } = await supabase.auth.signOut();
-      if (error) throw error;
-      navigate("/login");
-      notifySuccess("you have been  successfully logout");
-    } catch (error) {
-      notifyError("oops Some error occured while signing out");
-      console.error(error);
-    }
-  };
   return (
     <>
       <Toaster position="bottom-center" reverseOrder={false} />
@@ -89,7 +68,7 @@ const Navbar = () => {
               }
             >
               <li className="pb-1  flex flex-align-item-center gap-1">
-                <span className="font-bold label-text ">Hulu</span>
+                <span className="font-bold label-text ">Bled+</span>
               </li>
             </NavLink>
           </ul>
@@ -153,35 +132,6 @@ const Navbar = () => {
                 <span className=" label-text">PlayList</span>
               </li>
             </NavLink>
-            {currentUser ? (
-              <div className="nav-dropdown">
-                <span className="nav-dropbtn label-text actives">Settings</span>
-                <div className="nav-dropdown-content flex flex-column gap ">
-                  <span className="py pt-1 nav-dropdown-option actives">
-                    Welcome {userDetails[0]?.username}
-                  </span>
-                  <span
-                    className=" nav-dropdown-option actives"
-                    onClick={signoutUser}
-                  >
-                    Signout
-                  </span>
-                </div>
-              </div>
-            ) : (
-              <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                  isActive ? "actives" : "inactives"
-                }
-              >
-                <li className="pb-1 nav-text  flex flex-align-item-center gap-1 badge">
-                  <span className="material-icons label-text">login</span>
-
-                  <span className=" label-text">Login</span>
-                </li>
-              </NavLink>
-            )}
           </ul>
         </div>
       </nav>

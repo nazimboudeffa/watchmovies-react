@@ -46,17 +46,17 @@ const VideoListingPage = () => {
           <button
             className="btn-outline-primary btn btn-sm btn-round-20  btn-py-1 pills "
             onClick={() => {
-              setVideoCategory("Horror");
+              setVideoCategory("Sci-Fi");
             }}
           >
-            <span className="icon-pad-right">HORROR</span>
+            <span className="icon-pad-right">Sci-Fi </span>
           </button>
 
           <button
             className="btn-outline-primary btn btn-sm btn-round-20  btn-py-1 pills"
             onClick={() => setVideoCategory("Action")}
           >
-            <span className="icon-pad-right">ACTION </span>
+            <span className="icon-pad-right">Action </span>
           </button>
 
           <button
@@ -68,9 +68,9 @@ const VideoListingPage = () => {
 
           <button
             className="btn-outline-primary btn btn-sm btn-round-20  btn-py-1 pills"
-            onClick={() => setVideoCategory("Hindi")}
+            onClick={() => setVideoCategory("Comedy")}
           >
-            <span className="icon-pad-right">Hindi </span>
+            <span className="icon-pad-right">Comedy </span>
           </button>
 
           <button

@@ -11,9 +11,7 @@ import {
   PlaylistPage,
   SingleVideoPage,
   VideoListingPage,
-  WatchLaterPage,
-  LoginPage,
-  SignupPage,
+  WatchLaterPage
 } from "../UI/Pages";
 import {
   VideoDescriptionData,
@@ -25,60 +23,54 @@ import {
   AuthContextData,
 } from "../contexts/index";
 
-import { ProtectedRoute } from "./ProtectedRoute";
-
 const Routing = () => {
   return (
     <>
       <Router>
-        <AuthContextData>
-          <ToastContextData>
-            <PlayListData>
-              <UserHistoryData>
-                <VideoDescriptionData>
-                  <VideoData>
-                    <WatchLaterData>
-                      <Navbar />
-                      <Routes>
-                        <Route path="/mockman" element={<Mockman />} />
-                        <Route element={<ProtectedRoute />}>
-                          <Route path="/" element={<HomePage />} />
-                          <Route
-                            path="/watch/:id"
-                            element={<SingleVideoPage />}
-                          />
-                          <Route
-                            path="/movies"
-                            element={<VideoListingPage />}
-                          />
-                          <Route
-                            path="/likeplaylist"
-                            element={<LikeVideoPage />}
-                          />
-                          <Route path="/history" element={<HistoryPage />} />
-                          <Route
-                            path="/watchlater"
-                            element={<WatchLaterPage />}
-                          />
-                          <Route path="/playlist" element={<PlaylistPage />} />
+        <ToastContextData>
+          <PlayListData>
+            <UserHistoryData>
+              <VideoDescriptionData>
+                <VideoData>
+                  <WatchLaterData>
+                    <Navbar />
+                    <Routes>
+                      <Route path="/mockman" element={<Mockman />} />
+                      <Route 
+                        path="/"
+                        element={<HomePage />} 
+                      />
+                      <Route
+                        path="/watch/:id"
+                        element={<SingleVideoPage />}
+                      />
+                      <Route
+                        path="/movies"
+                        element={<VideoListingPage />}
+                      />
+                      <Route
+                        path="/likeplaylist"
+                        element={<LikeVideoPage />}
+                      />
+                      <Route path="/history" element={<HistoryPage />} />
+                      <Route
+                        path="/watchlater"
+                        element={<WatchLaterPage />}
+                      />
+                      <Route path="/playlist" element={<PlaylistPage />} />
 
-                          <Route
-                            path="/playlist/:title"
-                            element={<PlaylistMoviesPage />}
-                          />
-                        </Route>
-
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/signup" element={<SignupPage />} />
-                        <Route path="*" element={<NotFound />} />
-                      </Routes>
-                    </WatchLaterData>
-                  </VideoData>
-                </VideoDescriptionData>
-              </UserHistoryData>
-            </PlayListData>
-          </ToastContextData>
-        </AuthContextData>
+                      <Route
+                        path="/playlist/:title"
+                        element={<PlaylistMoviesPage />}
+                      />
+                      <Route path="*" element={<NotFound />} />
+                    </Routes>
+                  </WatchLaterData>
+                </VideoData>
+              </VideoDescriptionData>
+            </UserHistoryData>
+          </PlayListData>
+        </ToastContextData>
       </Router>
     </>
   );
